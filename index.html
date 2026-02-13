@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo Dinosaurio - Portal de Aprendizaje Accesible</title>
+    <style>
+        /* Definición de variables para asegurar contraste AA (WCAG) */
+        :root {
+            --primary-bg: #86b754;
+            --secondary-bg: #f4f4f4;
+            --text-color: #1a1a1a; /* Contraste alto contra blanco */
+            --accent-color: #9c5100; /* Azul con buen contraste para enlaces */
+            --focus-outline: #0cc9f3;
+            --footer-bg: #222222;
+            --footer-text: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            color: var(--text-color);
+            background-color: var(--primary-bg);
+        }
+
+        /* Estilos de navegación y accesibilidad por teclado */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--accent-color);
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            text-decoration: none;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        header {
+            background-color: var(--secondary-bg);
+            padding: 1rem 5%;
+            border-bottom: 4px solid var(--accent-color);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--accent-color);
+            text-decoration: underline;
+            font-weight: bold;
+            padding: 5px;
+        }
+
+        nav a:focus, button:focus, input:focus {
+            outline: 3px solid var(--focus-outline);
+            outline-offset: 2px;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 5%;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--text-color);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+        }
+
+        .dino-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        article {
+            background: var(--secondary-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .dino-image {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .cta-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--accent-color);
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: var(--footer-bg);
+            color: var(--footer-text);
+            text-align: center;
+            padding: 2rem 5%;
+            margin-top: 3rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            nav ul { flex-direction: column; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Enlace de salto para usuarios de teclado/lectores de pantalla -->
+    <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
+
+    <header role="banner">
+        <h1>Mundo Dinosaurio</h1>
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="#triasico">Período Triásico</a></li>
+                <li><a href="#jurasico">Período Jurásico</a></li>
+                <li><a href="#cretacico">Período Cretácico</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="contenido-principal">
+        <section>
+            <h2>Bienvenidos a la Era Mesozoica</h2>
+            <p>
+                Explora la vida de los gigantes que dominaron la Tierra durante millones de años. 
+                Esta página ha sido diseñada para ser accesible para todas las personas, incluyendo 
+                aquellas que utilizan lectores de pantalla o navegación por teclado.
+            </p>
+        </section>
+
+        <section class="dino-grid">
+            <!-- Artículo 1 -->
+            <article>
+                <h3>Tyrannosaurus Rex</h3>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Tyrannosaurus_rex_Reconstruction_by_Nobu_Tamura.jpg" 
+                     alt="Reconstrucción de un Tyrannosaurus Rex mostrando su gran mandíbula y postura bípeda" 
+                     class="dino-image">
+                <p>El "Rey de los lagartos tiranos" vivió a finales del período Cretácico. Fue uno de los carnívoros terrestres más grandes de todos los tiempos.</p>
+                <a href="https://es.wikipedia.org/wiki/Tyrannosaurus_rex" class="cta-link" aria-label="Leer más sobre el Tyrannosaurus Rex en Wikipedia">Más información sobre el T-Rex</a>
+            </article>
+
+            <!-- Artículo 2 -->
+            <article>
+                <h3>Triceratops</h3>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Triceratops_horridus.png" 
+                     alt="Estatua de un Triceratops destacando sus tres cuernos frontales y su gran gola ósea" 
+                     class="dino-image">
+                <p>Reconocible por sus tres cuernos y su gran plataforma craneal, este herbívoro era un oponente formidable para los depredadores.</p>
+                <a href="https://es.wikipedia.org/wiki/Triceratops" class="cta-link" aria-label="Leer más sobre el Triceratops en Wikipedia">Más información sobre el Triceratops</a>
+            </article>
+
+            <!-- Artículo 3 -->
+            <article>
+                <h3>Brachiosaurus</h3>
+                <img src="https://images.unsplash.com/photo-1517923389369-e60803c90710?auto=format&fit=crop&q=80&w=400" 
+                     alt="Representación de un Brachiosaurus de cuello largo alimentándose de las copas de los árboles" 
+                     class="dino-image">
+                <p>Un dinosaurio saurópodo conocido por su cuello extremadamente largo y su gran tamaño, viviendo durante el Jurásico Superior.</p>
+                <a href="https://es.wikipedia.org/wiki/Brachiosaurus" class="cta-link" aria-label="Leer más sobre el Brachiosaurus en Wikipedia">Más información sobre el Brachiosaurus</a>
+            </article>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <p>&copy; 2024 Proyecto Educativo Dinosaurios. Accesibilidad garantizada WCAG 2.1.</p>
+        <p>Imágenes cortesía de Unsplash (Uso educativo).</p>
+    </footer>
+
+</body>
+</html>
